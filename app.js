@@ -64,18 +64,6 @@ io.sockets.on('connection', function (socket) {
     socket.broadcast.emit('nextSlide', slideHash);
   });   
 
-/*
-   socket.on('nickname', function (nick, fn) {
-    if (nicknames[nick]) {
-      fn(true);
-    } else {
-      fn(false);
-      nicknames[nick] = socket.nickname = nick;
-      socket.broadcast.emit('announcement', nick + ' connected');
-      io.sockets.emit('nicknames', nicknames);
-    }
-  });
-*/
   socket.on('disconnect', function () {
     if (!socket.nickname) return;
 

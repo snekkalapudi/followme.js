@@ -5,7 +5,7 @@
 var express = require('express')
   , stylus = require('stylus')
   , nib = require('nib')
-  , sio = require('../../lib/socket.io');
+  , sio = require('socket.io');
 
 /**
  * App.
@@ -64,6 +64,7 @@ io.sockets.on('connection', function (socket) {
     socket.broadcast.emit('nextSlide', slideHash);
   });   
 
+/*
    socket.on('nickname', function (nick, fn) {
     if (nicknames[nick]) {
       fn(true);
@@ -74,12 +75,12 @@ io.sockets.on('connection', function (socket) {
       io.sockets.emit('nicknames', nicknames);
     }
   });
-
+*/
   socket.on('disconnect', function () {
     if (!socket.nickname) return;
 
     delete nicknames[socket.nickname];
     socket.broadcast.emit('announcement', socket.nickname + ' disconnected');
-    socket.broadcast.emit('nicknames', nicknames);
+   // socket.broadcast.emit('nicknames', nicknames);
   });
 });

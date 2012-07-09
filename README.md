@@ -14,3 +14,12 @@ Just in case if you see any errors, like connot find module. Just do "npm instal
 
 node app.js
 
+
+Usuage
+===========
+
+Share http://localhost:3000 with every one.
+
+Use http://localhost:3000/remote.html as a presentation remote.
+(If you are doing a real presentation, obfuscate this url)
+

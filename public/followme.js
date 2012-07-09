@@ -719,9 +719,9 @@
                     case 39: // right
                     case 40: // down
                              api.next();
-                             console.log("In next");
-                             message('me', 'hhhh');
-                             console.log(getHash());
+                             //console.log("In next");
+                             //message('me', 'hhhh');
+                             //console.log(getHash());
                              //socket.emit('user message', 'next');
                              break;
                 }

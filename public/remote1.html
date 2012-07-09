@@ -438,11 +438,13 @@ impress().init();
 
 
 function _next(){
-	socket.emit('user message', 'next');
+	//socket.emit('user message', 'next');
+	socket.emit('nextSlide',window.location.hash);
 }
 
 function _prev(){
-	socket.emit('user message', 'prev');
+	//socket.emit('user message', 'prev');
+	socket.emit('nextSlide',window.location.hash);
 }
 
 

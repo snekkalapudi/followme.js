@@ -711,7 +711,9 @@
                     case 37: // left
                     case 38: // up
                              api.prev();
+                             if (!("onhashchange" in window)) {
                              socket.emit('user message', 'prev');
+                             }
                              break;
                     case 9:  // tab
                     case 32: // space
@@ -720,9 +722,9 @@
                     case 40: // down
                              api.next();
                              console.log("In next");
-                             //message('me', 'hhhh');
-                             //console.log(getHash());
+                             if (!("onhashchange" in window)) {
                              socket.emit('user message', 'next');
+                             }
                              break;
                 }
                 

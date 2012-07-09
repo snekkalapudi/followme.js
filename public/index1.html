@@ -322,6 +322,7 @@ if ("ontouchstart" in document.documentElement) {
 
 
 
+
 <script>// socket.io specific code
 var socket = io.connect();
 
@@ -359,6 +360,12 @@ socket.on('announcement', socketLog);
 
 socket.on('user message', socketLog12);
 
+
+socket.on('nextSlide',function(slideHash){
+	
+   window.location.hash = slideHash;
+   console.log("In nextSlide socket on:::"+slideHash);	
+});
 
 function message (from, msg) {
 	console.log('Log from user...message');
@@ -418,7 +425,7 @@ function socketLog12 (from,msg) {
 });
 
 
-  console.log('Log from socketLog12:'+msg);
+  console.log('Log from socketLog12: '+msg);
   //impress().next();
   
   	//console.log('Log from user...message');
@@ -437,15 +444,11 @@ function socketLog12 (from,msg) {
 
 
 
-function getHash() {
-  var hash = window.location.hash;
-  var _hash = hash.substring(1); // remove #
-  return _hash.replace("/","");
-}
+
 </script>
 
 
-<script src="impress.js"></script>
+<script src="followme.js"></script>
 <script>
 
 socket.emit('nickname', 'p'+Math.floor((Math.random()*10000)+1), function (set) {
@@ -467,12 +470,8 @@ impress().init();</script>
 
 
 <div style="position: fixed; bottom: 10px; left: 10px; pointer-events: auto;">
-    <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=bartaz&repo=impress.js&type=watch&count=true"
-        allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
-    <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=bartaz&repo=impress.js&type=fork&count=true"
-        allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
 
-    <a href="http://twitter.com/share" class="twitter-share-button" data-text="impress your audience with impress.js - a #prezi inspired CSS3 presentation framework by @bartaz" data-url="http://bartaz.github.com/impress.js" data-related="bartaz"></a>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-text="Follow the Presentation in real-time on Web / Tablets / Mobile" data-url="http://mfronteer.com/webperf-slides"></a>
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 </div>
 

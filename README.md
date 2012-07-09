@@ -1,5 +1,6 @@
 followme.js
 ===========
+(This project is still in active development phase, but it is functional and is ready to use)
 
 How to try followme.js:
 

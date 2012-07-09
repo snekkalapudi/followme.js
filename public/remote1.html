@@ -437,16 +437,26 @@ socket.emit('nickname', 'p'+Math.floor((Math.random()*10000)+1), function (set) 
 impress().init();
 
 
+if ("onhashchange" in window) {  
+    console.log("The browser supports the hashchange event!");  
+}  
+  
+function locationHashChanged() {  
+     socket.emit('nextSlide',window.location.hash);
+}  
+  
+window.onhashchange = locationHashChanged;
+
 function _next(){
 	//socket.emit('user message', 'next');
 	impress().next();
-	socket.emit('nextSlide',window.location.hash);
+//	socket.emit('nextSlide',window.location.hash);
 }
 
 function _prev(){
 	//socket.emit('user message', 'prev');
 	impress().prev();
-	socket.emit('nextSlide',window.location.hash);
+//	socket.emit('nextSlide',window.location.hash);
 }
 
 

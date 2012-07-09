@@ -361,9 +361,16 @@ socket.on('announcement', socketLog);
 socket.on('user message', socketLog12);
 
 
+
+function getHash(_hash) {
+ // var hash = window.location.hash;
+  //var _hash = hash.substring(1); // remove #
+  return _hash.replace("/","");
+}
+
 socket.on('nextSlide',function(slideHash){
 	
-   window.location.hash = slideHash;
+   window.location.hash = getHash(slideHash);
    console.log("In nextSlide socket on:::"+slideHash);	
 });
 
